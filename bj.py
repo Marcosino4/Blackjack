@@ -56,12 +56,14 @@ while calcular_puntuacion(manoJugador) < 21:
     accion = input("¿Quieres tomar otra carta? (s/n): ").lower()
     if accion == 's':
         manoJugador.append(baraja.pop())
-        if calcular_puntuacion(manoMaquina) < 17:
-            manoMaquina.append(baraja.pop())
         mostrar_mano(manoJugador, "Jugador")
         mostrar_mano(manoMaquina, "Máquina")
     else:
         break
+
+#Turno de la máquina
+while calcular_puntuacion(manoMaquina) < 16:
+    manoMaquina.append(baraja.pop())
 
 # Mostrar manos finales
 mostrar_mano(manoJugador, "Jugador")
